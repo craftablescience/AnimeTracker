@@ -30,4 +30,6 @@
     <string name="settings_account">Account</string>
     <string name="settings_ui">Interface</string>
     <string name="settings_about">About</string>
+
+    <string name="toast_anilist_authorize_fail">Access denied. Please select "Authorize" next time.</string>
 </resources>

@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.annotation.IdRes
 import androidx.viewpager.widget.ViewPager
 import com.craftablescience.animetracker.util.PagerAdapter
@@ -39,7 +38,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         // set up top bar
         mainToolbar.inflateMenu(R.menu.main_toolbar_menu)
-        mainToolbar.title = readUsername()
 
         // set items to be displayed
         pagerAdapter.setItems(
@@ -80,13 +78,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 else -> false
             }
         }
+
+        mainToolbar.title = readUsername()
     }
 
     /**
      * Returns the username of the user if it is stored
      */
     private fun readUsername() : String? {
-        return sharedPreferences.getString("username", "Missing Profile Name")
+        return sharedPreferences.getString("username", "null")
     }
 
     /**

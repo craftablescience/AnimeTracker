@@ -1,0 +1,35 @@
+query Viewer {
+  Viewer {
+    about
+    avatar {
+      large
+      medium
+    }
+    name
+    updatedAt
+    id
+    bannerImage
+    options {
+      titleLanguage
+      displayAdultContent
+      airingNotifications
+      profileColor
+    }
+    mediaListOptions {
+      scoreFormat
+      rowOrder
+      useLegacyLists
+      sharedTheme
+      sharedThemeEnabled
+    }
+    statistics {
+      anime {
+        minutesWatched
+      }
+      manga {
+        volumesRead
+      }
+    }
+    siteUrl
+  }
+}

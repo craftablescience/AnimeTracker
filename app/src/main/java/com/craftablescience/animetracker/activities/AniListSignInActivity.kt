@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.craftablescience.animetracker.R
 
@@ -31,10 +32,16 @@ class AniListSignInActivity : AppCompatActivity() {
         if (Intent.ACTION_VIEW == appLinkAction) {
             val data = appLinkData.toString()
             val apiKey = data.substring(data.indexOf("=") + 1, data.indexOf("&"))
-            saveProfile(apiKey)
+            if (apiKey != "access_denied") {
+                saveProfile(apiKey)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, getString(R.string.toast_anilist_authorize_fail), Toast.LENGTH_LONG).show()
+                startActivity(Intent(this, FirstTimeSetupActivity::class.java))
+                finish()
+            }
         }
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
     }
 
     private fun saveProfile(key : String) {

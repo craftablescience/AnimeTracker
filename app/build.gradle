@@ -1,6 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id('com.android.application')
+    id('kotlin-android')
+    id('kotlin-android-extensions')
+    id("com.apollographql.apollo").version("2.2.3")
+}
 
 android {
     compileSdkVersion 29
@@ -22,6 +25,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -34,7 +46,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    implementation 'com.apollographql.apollo:apollo-runtime:2.2.3'
+    implementation 'com.apollographql.apollo:apollo-coroutines-support:2.2.3'
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+apollo {
+    generateKotlinModels.set(true)
 }
