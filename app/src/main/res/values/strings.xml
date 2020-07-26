@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Anime Tracker</string>
+
+
+    <string name="main_toolbar_name">Loading…</string>
+    <string name="main_toolbar_name_desc">Your profile name.</string>
+
+    <string name="settings_toolbar_name">Settings</string>
+    <string name="settings_toolbar_name_desc">The settings page.</string>
+
+
+    <string name="main_toolbar_settings">Settings</string>
+    <string name="main_toolbar_settings_desc">A button that leads to the settings.</string>
+    <string name="main_toolbar_logo">Profile</string>
+    <string name="main_toolbar_logo_desc">Your profile picture.</string>
+
+    <string name="settings_toolbar_back">Back</string>
+    <string name="settings_toolbar_back_desc">Go back to the previous page.</string>
+
+
+    <string name="main_currentlywatching">Watching</string>
+    <string name="main_completed">Completed</string>
+    <string name="main_onhold">On Hold</string>
+    <string name="main_dropped">Dropped</string>
+    <string name="main_planningtowatch">Planning</string>
+
+    <string name="settings_account">Account</string>
+    <string name="settings_ui">Interface</string>
+    <string name="settings_about">About</string>
+</resources>

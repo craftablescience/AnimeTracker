@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_bottom_navigation_item_currentlywatching"
+        android:icon="@drawable/ic_currentlywatching_white"
+        android:title="@string/main_currentlywatching" />
+    <item
+        android:id="@+id/main_bottom_navigation_item_completed"
+        android:icon="@drawable/ic_completed_white"
+        android:title="@string/main_completed" />
+    <item
+        android:id="@+id/main_bottom_navigation_item_onhold"
+        android:icon="@drawable/ic_onhold_white"
+        android:title="@string/main_onhold"/>
+    <item
+        android:id="@+id/main_bottom_navigation_item_dropped"
+        android:icon="@drawable/ic_dropped_white"
+        android:title="@string/main_dropped" />
+    <item
+        android:id="@+id/main_bottom_navigation_item_planningtowatch"
+        android:icon="@drawable/ic_planningtowatch_white"
+        android:title="@string/main_planningtowatch"/>
+
+</menu>
