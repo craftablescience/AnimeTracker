@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Anime Tracker</string>
 
+    <string name="anilist_client_id">3828</string>
+
 
     <string name="main_toolbar_name">Loading…</string>
     <string name="main_toolbar_name_desc">Your profile name.</string>
