@@ -1,9 +1,12 @@
 package com.craftablescience.animetracker.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toolbar
 import androidx.annotation.IdRes
 import androidx.viewpager.widget.ViewPager
 import com.craftablescience.animetracker.util.PagerAdapter
@@ -18,6 +21,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var mainToolbar: androidx.appcompat.widget.Toolbar
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,8 +34,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         pagerAdapter = PagerAdapter(supportFragmentManager)
         mainToolbar = findViewById(R.id.main_toolbar)
 
+        // prefs
+        sharedPreferences = getSharedPreferences(getString(R.string.shared_prefs_path), Context.MODE_PRIVATE)
+
         // set up top bar
         mainToolbar.inflateMenu(R.menu.main_toolbar_menu)
+        mainToolbar.title = readUsername()
 
         // set items to be displayed
         pagerAdapter.setItems(
@@ -70,6 +80,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 else -> false
             }
         }
+    }
+
+    /**
+     * Returns the username of the user if it is stored
+     */
+    private fun readUsername() : String? {
+        return sharedPreferences.getString("username", "Missing Profile Name")
     }
 
     /**

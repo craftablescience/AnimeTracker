@@ -23,7 +23,7 @@ class FirstTimeSetupActivity : AppCompatActivity() {
             startActivity(openUrl)
             finish()
         }
-        continueButton = findViewById(R.id.firsttimesetup_activity_button)
+        continueButton = findViewById(R.id.firsttimesetup_debug_continue)
         continueButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()

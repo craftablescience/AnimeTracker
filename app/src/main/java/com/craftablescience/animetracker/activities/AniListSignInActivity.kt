@@ -1,20 +1,21 @@
 package com.craftablescience.animetracker.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.craftablescience.animetracker.R
 
 class AniListSignInActivity : AppCompatActivity() {
-    private lateinit var textDebug : TextView
+    private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_loading)
+        setContentView(R.layout.activity_launch)
 
-        textDebug = findViewById(R.id.textDebug)
+        sharedPreferences = getSharedPreferences(getString(R.string.shared_prefs_path), Context.MODE_PRIVATE)
 
         handleIntent(intent)
     }
@@ -28,7 +29,18 @@ class AniListSignInActivity : AppCompatActivity() {
         val appLinkAction = intent.action
         val appLinkData: Uri? = intent.data
         if (Intent.ACTION_VIEW == appLinkAction) {
-            textDebug.text = appLinkData.toString()
+            val data = appLinkData.toString()
+            val apiKey = data.substring(data.indexOf("=") + 1, data.indexOf("&"))
+            saveProfile(apiKey)
         }
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    private fun saveProfile(key : String) {
+        val sharedPreferencesEditor = sharedPreferences.edit()
+        sharedPreferencesEditor.putString("anilist_api_key", key)
+        sharedPreferencesEditor.putBoolean("firsttimesetup_complete", true)
+        sharedPreferencesEditor.commit()
     }
 }

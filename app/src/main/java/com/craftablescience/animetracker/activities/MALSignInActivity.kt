@@ -12,7 +12,7 @@ class MALSignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_loading)
+        setContentView(R.layout.activity_loading_debug)
 
         textDebug = findViewById(R.id.textDebug)
 

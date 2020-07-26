@@ -1,6 +1,8 @@
 package com.craftablescience.animetracker.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.annotation.IdRes
@@ -19,6 +21,8 @@ class SettingsActivity : AppCompatActivity(), BottomNavigationView.OnNavigationI
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var settingsToolbar: androidx.appcompat.widget.Toolbar
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -28,6 +32,9 @@ class SettingsActivity : AppCompatActivity(), BottomNavigationView.OnNavigationI
         bottomNavigationView = findViewById(R.id.settings_bottom_navigation_view)
         pagerAdapter = PagerAdapter(supportFragmentManager)
         settingsToolbar = findViewById(R.id.settings_toolbar)
+
+        // prefs
+        sharedPreferences = getSharedPreferences(getString(R.string.shared_prefs_path), Context.MODE_PRIVATE)
 
         // set items to be displayed
         pagerAdapter.setItems(
@@ -60,6 +67,31 @@ class SettingsActivity : AppCompatActivity(), BottomNavigationView.OnNavigationI
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+
+    /**
+     * Saves a string to SharedPreferences
+     */
+    private fun saveStringSetting(key : String, value : String) {
+        val sharedPreferencesEditor = sharedPreferences.edit()
+        sharedPreferencesEditor.putString(key, value)
+        sharedPreferencesEditor.apply()
+    }
+    /**
+     * Saves a boolean to SharedPreferences
+     */
+    private fun saveBooleanSetting(key : String, value : Boolean) {
+        val sharedPreferencesEditor = sharedPreferences.edit()
+        sharedPreferencesEditor.putBoolean(key, value)
+        sharedPreferencesEditor.apply()
+    }
+    /**
+     * Saves an int to SharedPreferences
+     */
+    private fun saveIntSetting(key : String, value : Int) {
+        val sharedPreferencesEditor = sharedPreferences.edit()
+        sharedPreferencesEditor.putInt(key, value)
+        sharedPreferencesEditor.apply()
     }
 
     /**

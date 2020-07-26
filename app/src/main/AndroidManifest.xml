@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FirstTimeSetupActivity">
+        <activity android:name=".activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,10 +25,11 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:scheme="https"
                     android:host="craftablescience.github.io"
-                    android:pathPattern="/mal_signin" />
+                    android:pathPattern="/mal_signin"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.AniListSignInActivity">
@@ -36,12 +38,14 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:scheme="https"
                     android:host="craftablescience.github.io"
-                    android:pathPrefix="/anilist_signin" />
+                    android:pathPrefix="/anilist_signin"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.FirstTimeSetupActivity" />
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.SettingsActivity" />
     </application>
