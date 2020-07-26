@@ -13,19 +13,19 @@ enum class SettingsScreen(@IdRes override val menuItemId: Int,
                           override val fragment: Fragment) : ActivityScreen {
     ACCOUNT(
         R.id.settings_bottom_navigation_item_account,
-        R.drawable.ic_currentlywatching_white,
+        R.drawable.ic_profile,
         R.string.settings_account,
         AccountFragment()
     ),
     UI(
         R.id.settings_bottom_navigation_item_ui,
-        R.drawable.ic_completed_white,
+        R.drawable.ic_ui,
         R.string.settings_ui,
         UIFragment()
     ),
     ABOUT(
         R.id.settings_bottom_navigation_item_about,
-        R.drawable.ic_onhold_white,
+        R.drawable.ic_about,
         R.string.settings_about,
         AboutFragment()
     );

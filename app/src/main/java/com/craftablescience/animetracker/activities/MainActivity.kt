@@ -25,10 +25,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // elements
         viewPager = findViewById(R.id.main_view_pager)
         bottomNavigationView = findViewById(R.id.main_bottom_navigation_view)
-        pagerAdapter =
-            PagerAdapter(
-                supportFragmentManager
-            )
+        pagerAdapter = PagerAdapter(supportFragmentManager)
         mainToolbar = findViewById(R.id.main_toolbar)
 
         // set up top bar
@@ -62,10 +59,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 selectBottomNavigationViewMenuItem(selectedScreen.menuItemId)
             }
         })
-
-        mainToolbar.setNavigationOnClickListener {
-            // TODO: open WebView of profile page
-        }
 
         mainToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {

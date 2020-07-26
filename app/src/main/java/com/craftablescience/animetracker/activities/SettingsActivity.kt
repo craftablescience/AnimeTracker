@@ -26,10 +26,7 @@ class SettingsActivity : AppCompatActivity(), BottomNavigationView.OnNavigationI
         // elements
         viewPager = findViewById(R.id.settings_view_pager)
         bottomNavigationView = findViewById(R.id.settings_bottom_navigation_view)
-        pagerAdapter =
-            PagerAdapter(
-                supportFragmentManager
-            )
+        pagerAdapter = PagerAdapter(supportFragmentManager)
         settingsToolbar = findViewById(R.id.settings_toolbar)
 
         // set items to be displayed
